@@ -1,8 +1,14 @@
 <?php
 
-namespace app\jobs;
+namespace App\Jobs;
 
-class ActivityLogJob
+use App\Models\ActivityLog;
+use Illuminate\Bus\Queueable;
+use Illuminate\Contracts\Queue\ShouldQueue;
+use Illuminate\Queue\InteractsWithQueue;
+use Illuminate\Queue\SerializesModels;
+
+class ActivityLogJob implements ShouldQueue
 {
     use InteractsWithQueue, Queueable, SerializesModels;
 

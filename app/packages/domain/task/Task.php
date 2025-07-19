@@ -9,14 +9,14 @@ use DateTime;
  */
 class Task
 {
-    private int $id;
+    private ?int $id;
     private string $title;
     private string $description;
     private Status $status;
     private DateTime $due_date;
 
     private function __construct(
-        int $id,
+        ?int $id,
         string $title,
         string $description,
         Status $status,
@@ -40,7 +40,7 @@ class Task
     }
 
     // ゲッター
-    public function getId(): int
+    public function getId(): ?int
     {
         return $this->id;
     }
