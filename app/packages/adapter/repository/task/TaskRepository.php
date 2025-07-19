@@ -18,7 +18,6 @@ class TaskRepository implements ITaskRepository
     public function insert(Task $task): void
     {
         $this->db->table('tasks')->insert([
-            'id' => $task->getId(),
             'title' => $task->getTitle(),
             'description' => $task->getDescription(),
             'status' => $task->getStatus()->value,
