@@ -65,19 +65,40 @@ export default function TaskForm() {
     };
 
     return (
-        <div className="bg-white rounded-lg shadow-xl p-8 h-fit">
-            <div className="mb-6">
-                <h2 className="text-2xl font-bold text-gray-900 mb-2">新しいタスク</h2>
-                <p className="text-gray-600">タスクの詳細を入力してください</p>
+        <div className="bg-gradient-to-br from-white via-blue-50 via-purple-50 to-pink-50 bg-opacity-95 backdrop-blur-lg rounded-3xl shadow-2xl p-6 md:p-8 h-fit border-2 border-gradient-rainbow hover:shadow-rainbow transition-all duration-500 animate-border-rainbow w-full max-w-4xl mx-auto box-border overflow-hidden">
+            <div className="mb-8">
+                <div className="flex items-center gap-4 mb-6">
+                    <div className="w-16 h-16 bg-gradient-to-r from-orange-400 via-pink-500 to-purple-600 rounded-full flex items-center justify-center animate-spin-slow shadow-lg">
+                        <span className="text-3xl animate-bounce">🎯</span>
+                    </div>
+                    <div>
+                        <h2 className="text-4xl font-bold bg-gradient-to-r from-orange-500 via-pink-500 via-purple-500 to-blue-500 bg-clip-text text-transparent animate-gradient-text">新しいタスクを作成</h2>
+                        <div className="h-1 bg-gradient-to-r from-red-400 via-yellow-400 via-green-400 to-blue-400 rounded-full mt-2 animate-rainbow-slide"></div>
+                    </div>
+                </div>
+                <p className="text-gray-800 font-bold text-lg bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent">🌈 タスクの詳細を入力して、夢の目標を達成しましょう！ ✨</p>
             </div>
 
             {message && (
-                <div className={`mb-6 p-4 rounded-lg ${
+                <div className={`mb-6 p-6 rounded-3xl backdrop-blur-sm border-3 ${
                     message.includes("成功") || message.includes("作成") || message.includes("正常")
-                        ? "bg-green-50 border border-green-200 text-green-800"
-                        : "bg-red-50 border border-red-200 text-red-800"
-                }`}>
-                    <p className="text-sm font-medium">{message}</p>
+                        ? "bg-gradient-to-r from-green-100 via-emerald-100 to-teal-100 border-green-400 text-green-900 shadow-green-300/50"
+                        : "bg-gradient-to-r from-red-100 via-pink-100 to-orange-100 border-red-400 text-red-900 shadow-red-300/50"
+                } shadow-2xl animate-message-glow`}>
+                    <div className="flex items-center gap-3">
+                        <span className="text-2xl animate-bounce">{
+                            message.includes("成功") || message.includes("作成") || message.includes("正常")
+                                ? "🎉" : "⚠️"
+                        }</span>
+                        <p className="font-black text-lg">{message}</p>
+                        <div className="ml-auto">
+                            <div className="flex space-x-1">
+                                <div className="w-2 h-2 bg-yellow-400 rounded-full animate-ping"></div>
+                                <div className="w-2 h-2 bg-green-400 rounded-full animate-ping animation-delay-200"></div>
+                                <div className="w-2 h-2 bg-blue-400 rounded-full animate-ping animation-delay-400"></div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             )}
 
@@ -91,7 +112,7 @@ export default function TaskForm() {
                         value={title}
                         onChange={e => setTitle(e.target.value)}
                         required
-                        className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors ${
+                        className={`w-full max-w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 focus:outline-none transition-colors box-border ${
                             errors.title ? 'border-red-300' : 'border-gray-300'
                         }`}
                         placeholder="タスクのタイトルを入力してください"
@@ -110,7 +131,7 @@ export default function TaskForm() {
                         onChange={e => setDescription(e.target.value)}
                         required
                         rows={4}
-                        className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors resize-none ${
+                        className={`w-full max-w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 focus:outline-none transition-colors resize-none box-border ${
                             errors.description ? 'border-red-300' : 'border-gray-300'
                         }`}
                         placeholder="タスクの詳細説明を入力してください"
@@ -128,7 +149,7 @@ export default function TaskForm() {
                         <select 
                             value={status} 
                             onChange={e => setStatus(e.target.value)}
-                            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+                            className="w-full max-w-full px-4 py-3 border-2 border-purple-200 rounded-2xl focus:ring-2 focus:ring-purple-300 focus:border-purple-500 focus:outline-none transition-all duration-300 bg-gradient-to-r from-white to-purple-50 font-medium shadow-lg hover:shadow-xl hover:border-purple-300 box-border"
                         >
                             <option value="todo">Todo</option>
                             <option value="in_progress">In Progress</option>
@@ -155,7 +176,7 @@ export default function TaskForm() {
                             value={dueDate}
                             onChange={e => setDueDate(e.target.value)}
                             required
-                            className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors ${
+                            className={`w-full max-w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 focus:outline-none transition-colors box-border ${
                                 errors.due_date ? 'border-red-300' : 'border-gray-300'
                             }`}
                         />

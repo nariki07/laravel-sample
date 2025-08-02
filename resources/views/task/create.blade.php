@@ -4,11 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>タスク作成</title>
+    <title>🌈 RainbowTask - キラキラタスク管理 ✨</title>
     @viteReactRefresh
     @vite(['resources/css/app.css', 'resources/js/app.jsx'])
 </head>
-<body>
+<body class="main-container">
 <div id="app"></div> {{-- ReactがマウントされるDOM --}}
 </body>
 </html>
